@@ -1,0 +1,216 @@
+/* =========================================
+   RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f9;
+    color: #d21010;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+.navbar {
+    background: #0046ad;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   HERO
+========================================= */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: #0046ad;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+/* =========================================
+   BUSCADOR
+========================================= */
+.buscador {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.buscador input {
+    width: 320px;
+    max-width: 90%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.buscador input:focus {
+    border-color: #0046ad;
+    box-shadow: 0 0 8px rgba(0,70,173,0.2);
+}
+
+/* =========================================
+   ACCIONES (BOTONES SUPERIORES)
+========================================= */
+.acciones {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.acciones button {
+    background: #0046ad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.acciones button:hover {
+    background: #e4181e;
+    transform: translateY(-2px);
+}
+
+/* BOTÓN REGRESAR */
+.btn-regresar {
+    display: inline-block;
+    background: #0046ad !important;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background: #e4181e !important;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   GRID
+========================================= */
+.grid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* =========================================
+   TARJETAS
+========================================= */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(228, 30, 30, 0.852);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(227, 18, 18, 0.779);
+}
+
+/* IMAGEN */
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* TITULO */
+.card h3 {
+    color: #0046ad;
+    margin-bottom: 8px;
+}
+
+/* TEXTO */
+.card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* PRECIO */
+.precio {
+    color: #e4181e;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* =========================================
+   FAVORITO (ESTRELLA)
+========================================= */
+.fav {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.fav:hover {
+    transform: scale(1.2);
+}
+
+.fav.active {
+    color: gold;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .buscador input {
+        width: 90%;
+    }
+}
+.acciones button,
+.acciones a {
+    background: #0046ad;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.acciones button:hover,
+.acciones a:hover {
+    background: #e4181e;
+    transform: translateY(-2px);
+}
