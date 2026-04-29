@@ -13,7 +13,7 @@ body {
 }
 
 /* =========================================
-   IMÁGENES GLOBAL (FIX IMPORTANTE)
+   IMÁGENES (FIX GLOBAL 🔥)
 ========================================= */
 img {
     max-width: 100%;
@@ -24,12 +24,24 @@ img {
 /* =========================================
    HERO IMAGE
 ========================================= */
+/* =========================================
+   HERO IMAGE (OPTIMIZADA)
+========================================= */
 .hero-image {
-    height: 100vh;
     width: 100%;
+    height: 70vh; /* Bajamos de 100 a 70 para que no sea tan eterna en móvil */
     background-image: url("img/imagendefondo.png");
-    background-size: cover;
-    background-position: center;
+    background-size: cover;      /* Cubre todo el espacio */
+    background-position: center; /* Mantiene el centro de la foto siempre visible */
+    background-repeat: no-repeat;
+}
+
+/* Ajuste específico para celulares */
+@media (max-width: 600px) {
+    .hero-image {
+        height: 40vh; /* En celulares, una imagen más corta se ve mucho mejor */
+        background-attachment: scroll; /* Evita problemas de rendimiento en móviles */
+    }
 }
 
 /* =========================================
@@ -68,7 +80,7 @@ img {
 }
 
 /* =========================================
-   NAV
+   BOTONES NAV
 ========================================= */
 nav {
     display: flex;
@@ -90,6 +102,12 @@ nav a:hover {
     transform: translateY(-3px) scale(1.05);
 }
 
+nav a.active {
+    background: #0046ad;
+    box-shadow: 0 6px 15px rgba(223, 6, 14, 0.65);
+    transform: none;
+}
+
 /* =========================================
    CONTENIDO
 ========================================= */
@@ -100,7 +118,7 @@ nav a:hover {
 }
 
 /* =========================================
-   HERO TEXTO
+   HERO TEXTO (FIX RESPONSIVE)
 ========================================= */
 .hero {
     width: 100%;
@@ -112,9 +130,11 @@ nav a:hover {
 
 .hero h2 {
     font-size: 3rem;
+    font-weight: bold;
 }
 
 .hero p {
+    margin-top: 10px;
     font-size: 1.2rem;
 }
 
@@ -150,20 +170,28 @@ nav a:hover {
 
 .card:hover {
     background: #abcff6;
-    transform: translateY(-10px) scale(1.05);
+    color: #1048e2;
+    transform: translateY(-10px) scale(1.08);
 }
 
-/* IMÁGENES DE CARDS (FIX PRINCIPAL 🔥) */
+/* IMÁGENES (FIX 🔥) */
 .card img {
     width: 100%;
     height: auto;
-    max-height: 160px;
+    max-height: 200px;
     object-fit: contain;
     margin-bottom: 10px;
 }
 
+/* TEXTO CARD */
+.card a {
+    text-decoration: none;
+    color: #0046ad;
+    font-weight: bold;
+}
+
 /* =========================================
-   PROMOCIONES
+   PROMOCIONES (FIX RESPONSIVE)
 ========================================= */
 .promociones {
     width: 100%;
@@ -172,7 +200,7 @@ nav a:hover {
     padding: 60px 20px;
 }
 
-/* BOTÓN */
+/* BOTÓN PROMOCIONES */
 .btn-promociones {
     display: inline-block;
     background: linear-gradient(135deg, #0046ad, #007bff);
@@ -186,6 +214,12 @@ nav a:hover {
     font-weight: bold;
 
     margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-promociones:hover {
+    background: linear-gradient(135deg, #e4181e, #ff4d4d);
+    transform: translateY(-5px) scale(1.08);
 }
 
 /* PROMO CARDS */
@@ -205,16 +239,22 @@ nav a:hover {
     text-align: center;
 
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
 .promo-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
 }
 
 /* =========================================
-   FOOTER
+   FOOTER (FIX RESPONSIVE)
 ========================================= */
 footer {
     width: 100%;
@@ -225,7 +265,7 @@ footer {
 }
 
 /* =========================================
-   RESPONSIVE (CLAVE PARA TU PROBLEMA 📱)
+   RESPONSIVE
 ========================================= */
 @media (max-width: 900px) {
     .menu {
@@ -241,13 +281,53 @@ footer {
     .hero h2 {
         font-size: 2rem;
     }
+}
+.carrito {
+    position: fixed;
+    right: 10px;
+    top: 90px;
+    width: 280px;
 
-    .card {
-        height: auto;
-        padding: 15px;
-    }
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
 
-    .card img {
-        max-height: 120px;
-    }
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: none;
+
+    z-index: 3000;
+}
+
+.carrito h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #0046ad;
+}
+
+.carrito ul {
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.carrito ul li {
+    font-size: 14px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.carrito p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #e4181e;
+}
+
+/* BOTÓN CARRITO EN NAV (opcional si lo usas) */
+nav a.carrito-btn {
+    background: #e4181e;
+}
+
+nav a.carrito-btn:hover {
+    background: #0046ad;
 }
