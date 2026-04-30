@@ -77,9 +77,13 @@ nav a.carrito-btn {
 /* =========================================
     HERO IMAGE (PANTALLA COMPLETA)
 ========================================= */
+/* =========================================
+    HERO IMAGE (PANTALLA COMPLETA)
+========================================= */
 .hero-image {
     width: 100%;
-    height: 100vh; /* Ocupa toda la pantalla en PC */
+    height: 100vh; /* Pantalla completa en monitor */
+    background-color: #e4181e; /* Rojo DQ por si la imagen tarda en cargar */
     background-image: url("img/imagendefondo.png");
     background-size: cover;
     background-position: center;
@@ -89,10 +93,19 @@ nav a.carrito-btn {
     justify-content: center;
 }
 
+/* AQUÍ PEGAS LA CONFIGURACIÓN PARA CELULAR */
 @media (max-width: 600px) {
     .hero-image {
-        height: 100dvh; /* Altura dinámica para celulares */
+        /* En celular le damos una altura fija para que la imagen horizontal */
+        /* se vea completa de lado a lado sin que se recorten los productos */
+        height: 50vh; 
+        
+        background-size: contain; /* Obliga a que se vea TODA la imagen */
+        background-position: center;
         background-attachment: scroll;
+        
+        /* Opcional: si quieres que el fondo rojo siga hacia abajo */
+        /* puedes dejar el height en 100dvh, pero la imagen se verá pequeña en medio */
     }
 }
 
