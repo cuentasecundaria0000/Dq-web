@@ -27,16 +27,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .logo img {
-    height: 50px;
+    height: 45px;
 }
 
 nav {
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 nav a {
@@ -44,8 +44,9 @@ nav a {
     background: #0046ad;
     color: white;
     font-weight: bold;
-    padding: 10px 18px;
-    border-radius: 10px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
 /* =========================================
@@ -53,54 +54,29 @@ nav a {
 ========================================= */
 .hero-image {
     width: 100%;
-    height: 100vh; /* Pantalla completa */
-    
-    /* IMAGEN PARA COMPUTADORA */
-    background-image: url("img/imagendefondo.png"); 
+    height: 100vh; 
+    background-image: url("img/imagendefondo.png"); /* PC */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* CONFIGURACIÓN PARA CELULAR */
 @media (max-width: 600px) {
     .hero-image {
-        /* IMAGEN PARA CELULAR (Debe ser vertical) */
-        background-image: url("img/imagendefondocel.png"); 
-        
-        height: 100dvh; /* Ocupa toda la pantalla del cel */
-        background-size: cover; /* Ahora sí podemos usar cover porque la imagen es vertical */
+        background-image: url("img/banner-movil.png"); /* CELULAR */
+        height: 100dvh; 
+        background-size: cover;
         background-position: center;
     }
 }
 
 /* =========================================
-    CARRITO FLOTANTE
-========================================= */
-.carrito {
-    position: fixed;
-    right: 10px;
-    top: 90px;
-    width: 280px;
-    background: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    display: none;
-    z-index: 3000;
-}
-
-/* =========================================
-    CONTENIDO & MENÚ
+    CATÁLOGO (EL FIX DE LAS CARDS 🔥)
 ========================================= */
 .content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px 40px;
+    padding: 40px 20px;
 }
 
 .menu {
@@ -112,17 +88,47 @@ nav a {
 
 .card {
     background: white;
-    padding: 25px;
+    padding: 20px;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    
+    /* Forzamos a que la card tenga un tamaño base y no crezca infinito */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 350px; 
+    overflow: hidden; /* Evita que nada se salga */
     transition: 0.3s;
 }
 
+/* FIX PARA LAS IMÁGENES DENTRO DE LAS CARDS */
 .card img {
     width: 100%;
-    max-height: 200px;
-    object-fit: contain;
+    height: 180px; /* Altura fija para que todas las fotos midan igual */
+    object-fit: contain; /* Ajusta la foto sin estirarla y sin que se salga */
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card a {
+    text-decoration: none;
+    color: #0046ad;
+    font-weight: bold;
+    border: 2px solid #0046ad;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border: 1px solid #0046ad;
 }
 
 /* =========================================
@@ -138,36 +144,50 @@ nav a {
 .promo-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .promo-card {
     background: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.promo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Las promos suelen verse mejor rellenas */
+    border-radius: 5px;
 }
 
 /* =========================================
-    FOOTER
+    CARRITO FLOTANTE
 ========================================= */
-footer {
-    width: 100%;
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
+.carrito {
+    position: fixed;
+    right: 15px;
+    top: 80px;
+    width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 2000;
+    display: none;
 }
 
 /* =========================================
     RESPONSIVE AJUSTES
 ========================================= */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .menu { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .menu { grid-template-columns: 1fr; }
+    .navbar { padding: 10px 15px; }
+    .logo img { height: 35px; }
 }
