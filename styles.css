@@ -70,7 +70,7 @@ nav a {
 @media (max-width: 600px) {
     .hero-image {
         /* IMAGEN PARA CELULAR (Debe ser vertical) */
-        background-image: url("img/banner-movil.png"); 
+        background-image: url("img/imagendefondocel.png"); 
         
         height: 100dvh; /* Ocupa toda la pantalla del cel */
         background-size: cover; /* Ahora sí podemos usar cover porque la imagen es vertical */
